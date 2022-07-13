@@ -24,13 +24,13 @@ def hearme():
         engine_talk('Listening.....')
         r.adjust_for_ambient_noise(source,duration=2)
         audio = r.listen(source) 
+        query='e'
     try:
         print('Recognizing') 
         query = r.recognize_google(audio,language='en-in')
         engine.runAndWait()
     except Exception as ex: 
         print(ex) 
-        query="None"
     return query
 
 
@@ -53,14 +53,17 @@ def run_shinzo():
             print('you said'+command)
         else:
             print('you said :'+command)
+        
         if 'hello' in command:
             print('hello how can i help you ??^^')
             engine_talk('hello, how can i help you ??')
-
+        elif command =='e':
+            engine_talk('sorry please say that again')
+            run_shinzo()
         elif 'who made you' in command or 'created you'in command:
             print('I have been created by Nikita Rawat')
             engine_talk('I have been created by Nikita Rawat')
-
+        
         elif 'who are you' in command:
             print('i am shinzo aka your virtual assistant master')
             engine_talk('i am shinzo aka your virtual assistant master.how can i help you??')
