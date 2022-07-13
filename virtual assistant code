@@ -30,8 +30,7 @@ def hearme():
         engine.runAndWait()
     except Exception as ex: 
         print(ex) 
-        return None
-        run_shinzo()
+        query="None"
     return query
 
 
